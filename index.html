@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariam wafa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Handjet:wght@300;400&family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Ysabeau+SC:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="calculator.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />  <!--عشان اخلي في ايقون جمب اسم الصفحه -->
+</head>
+
+<body oncontextmenu="return false"><!-- عشان تلغي الانسبكت -->
+    <div id="main">
+        <div id="container">
+            <div class="header">
+                <h2 id="h2">calculator</h2>
+                <button id="ball"><span>&#9775;</span></button>
+            </div>
+
+            <div id="rec">
+                <div id="calc" style="font-size: 30PX;"></div>
+                <br>
+                <br>
+                <div id="res" style="font-size: 30PX;"></div>
+            </div>
+
+            <div class="buttons_1">
+                <button id="abi">&#8719;</button>
+                <button id="sin">sin</button>
+                <button id="cos">cos</button>
+                <button id="log">log</button>
+                <button id="e">AC</button>
+                <button id="round">&#8771;</button>
+                <button id="squre">□²</button>
+                <button id="root">&#8730;</button>
+                <!-- <button id="bracket" >)</button> -->
+            </div>
+            <div id="numbers">
+                <button id="a7">7</button>
+                <button id="a8">8</button>
+                <button id="a9">9</button>
+                <button id="asum" style="font-size: 23px;">+</button>
+                <button id="a4">4</button>
+                <button id="a5">5</button>
+                <button id="a6">6</button>
+                <button id="ab" style="font-size: 14px;">&#9587;</button>
+                <button id="a1">1</button>
+                <button id="a2">2</button>
+                <button id="a3">3</button>
+                <button id="adi">÷</button>
+                <button id="a0">0</button>
+                <button id="adote" style="font-size: 19px;">.</button>
+                <button id="aequ">=</button>
+                <button id="amin" style="font-size: 38px;">-</button>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var x = 0;
+        var y = '';
+        var z = 0;
+        var c = '' //العملية الحسابية بتعاتي
+        ball.addEventListener('click', function () {
+            var c1 = '';
+            if (ball.style.color != 'rgb(213, 214, 217)') {
+                c1 = '#d5d6d9';
+            } else {
+                c1 = '#000';
+            }
+            ball.style.color = c1;
+            h2.style.color = c1;
+            container.style.background = "#23254e";
+            numbers.style.background = c1;
+            numbers.style.borderRadius = "20px";
+            numbers.style.width = "98%";
+            rec.style.background = "#acc8f2";
+            abi.style.background = c1;
+            sin.style.background = c1;
+            cos.style.background = c1;
+            log.style.background = c1;
+            root.style.background = c1;
+            e.style.background = c1;
+            round.style.background = c1;
+            squre.style.background = c1;
+            abi.style.color = "#23254e";
+            sin.style.color = "#23254e";
+            cos.style.color = "#23254e";
+            log.style.color = "#23254e";
+            root.style.color = "#23254e";
+            e.style.color = "#23254e";
+            round.style.color = "#23254e";
+            squre.style.color = "#23254e";
+            a7.style.background = "#23254e";
+            a7.style.color = "#fff";
+            a8.style.background = "#23254e";
+            a8.style.color = "#fff";
+            a9.style.background = "#23254e";
+            a9.style.color = "#fff";
+            a1.style.background = "#23254e";
+            a1.style.color = "#fff";
+            a2.style.background = "#23254e";
+            a2.style.color = "#fff";
+            a3.style.background = "#23254e";
+            a3.style.color = "#fff";
+            a4.style.background = "#23254e";
+            a4.style.color = "#fff";
+            a5.style.background = "#23254e";
+            a5.style.color = "#fff";
+            a6.style.background = "#23254e";
+            a6.style.color = "#fff";
+            adi.style.background = "#23254e";
+            adi.style.color = "#fff";
+            ab.style.background = "#23254e";
+            ab.style.color = "#fff";
+            asum.style.background = "#23254e";
+            asum.style.color = "#fff";
+            a0.style.background = "#23254e";
+            a0.style.color = "#fff";
+            adote.style.background = "#23254e";
+            adote.style.color = "#fff";
+            aequ.style.background = "#23254e";
+            aequ.style.color = "#fff";
+            amin.style.background = "#23254e";
+            amin.style.color = "#fff";
+        }
+        )
+        adote.addEventListener("click", function () {
+            calc.textContent += "."
+            c += ".";
+        })
+        e.addEventListener("click", function () {
+            calc.textContent = "                                                    "
+            res.textContent = "                                                    "
+            c = '' //حلوة كده:)
+            y = ''
+        })
+        round.addEventListener("click", function () {
+            res.textContent = Math.round(eval(c))
+        })
+        squre.addEventListener("click", function () {
+            calc.textContent += "²"
+            c += '**2' //عشان احول لدرجات
+
+        })
+        root.addEventListener("click", function () {
+            calc.innerHTML += "&#8730;"
+            c += 'Math.sqrt(' //عشان احول لدرجات
+            y = ')'
+        })
+
+        log.addEventListener("click", function () {
+            calc.textContent += "log ("
+            c += 'Math.log(  ' //عشان احول لدرجات صح؟انتي متعمليش حاجة غلط:)
+            y = ')'
+        })
+        cos.addEventListener("click", function () {
+            calc.textContent += "cos ("
+            c += 'Math.cos(  ' //عشان احول لدرجات
+            y = ')'
+        })
+        sin.addEventListener("click", function () {
+            //x = prompt('enter number')
+            calc.textContent += "Sin ("
+            c += 'Math.sin(  ' //عشان احول لدرجات
+            y = ')'
+        })
+        a1.addEventListener("click", function () {
+            calc.textContent += 1;
+            c += "1";
+        })
+        a2.addEventListener("click", function () {
+            calc.textContent += 2;
+            c += "2";
+
+        })
+        a3.addEventListener("click", function () {
+            calc.textContent += 3;
+            c += "3";
+        })
+        a4.addEventListener("click", function () {
+            calc.textContent += 4;
+            c += "4";
+
+        })
+        // bracket.addEventListener("click" ,function()
+        // {
+        //     calc.textContent+=')';
+        //     c += ")";
+        // })
+        a5.addEventListener("click", function () {
+            calc.textContent += 5;
+            c += "5";
+
+        })
+        a6.addEventListener("click", function () {
+            calc.textContent += 6;
+            c += "6";
+
+        })
+        a7.addEventListener("click", function () {
+            calc.textContent += 7;
+            c += "7";
+        })
+        a8.addEventListener("click", function () {
+            calc.textContent += 8;
+            c += "8";
+
+        })
+        a9.addEventListener("click", function () {
+            calc.textContent += 9;
+            c += "9";
+
+        })
+        asum.addEventListener("click", function () {
+            calc.textContent += "+";
+            c += "+";
+        })
+        a0.addEventListener("click", function () {
+            calc.textContent += 0;
+            c += "0";
+        })
+        adi.addEventListener("click", function () {
+            calc.textContent += "÷";
+            c += "/";
+        })
+        ab.addEventListener("click", function () {
+            calc.textContent += "×";
+            c += "*";
+        })
+        amin.addEventListener("click", function () {
+            calc.textContent += "-";
+            c += "-";
+        })
+        abi.addEventListener("click", function () {
+            x = Math.PI
+            calc.textContent += x.toPrecision(3);//تمااااااااااااااااااااااااااام
+            c += 'x' //عشانن لو حبيت استخدمها 
+        })
+        aequ.addEventListener("click", function () {
+            c += y //هنا لما اضغط علي اي يساوي هيضيف قيمة y  للناتج
+            z = eval(c) //كنتي حاطة قيمة y الافتراضية 000000000000 :(
+            y = '' //عشان كدة بخلي قيمتها فاضي بعد لما العملية تخلص
+            res.textContent = z;//انتي صح انا اسف ههههه
+            //ايه الحلاوه دي :)
+        })
+//مين اشطر مهندس :احمد الطارووون واللة انتي اللي عسل
+//333
+
+    </script>
+</body>
+
+</html>
